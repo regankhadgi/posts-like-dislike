@@ -78,6 +78,12 @@
 		</div>
 	</div>
 	<div class="pld-field-wrap">
+		<label><?php _e('Already Liked/Disliked Color', PLD_TD); ?></label>
+		<div class="pld-field">
+			<input type="text" name="pld_settings[design_settings][already_liked_disliked_color]" class="pld-form-field pld-colorpicker" value="<?php echo (!empty($pld_settings['design_settings']['already_liked_disliked_color'])) ? esc_attr($pld_settings['design_settings']['already_liked_disliked_color']) : ''; ?>" />
+		</div>
+	</div>
+	<div class="pld-field-wrap">
 		<label><?php _e('Disable Fontawesome', PLD_TD); ?></label>
 		<div class="pld-field">
 			<input type="checkbox" name="pld_settings[design_settings][disable_fontawesome]" class="pld-form-field" value="1" <?php echo (!empty($pld_settings['design_settings']['disable_fontawesome'])) ? 'checked="checked"' : ''; ?> />
