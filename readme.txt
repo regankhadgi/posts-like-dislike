@@ -1,10 +1,10 @@
 === Posts Like Dislike ===
-Contributors: Happy Coders,Regan Khadgi
+Contributors: Happy Coders,regankhadgi
 Donate link: http://wphappycoders.com/
 Tags: posts, post, custom post type,page, like, dislike, like dislike
 Requires at least: 5.0
-Tested up to: 6.1
-Stable tag: 1.0.9
+Tested up to: 6.2
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -71,6 +71,12 @@ Our plugin does contains many actions and filters which are described inside the
 = I want to display in the post detail template. Do you have a custom function? = 
 We do have a shortcode [posts_like_dislike] which can also be used as custom function through `<?php echo do_shortcode('[posts_like_dislike]');?>`
 
+= Can I disable fontawesome? = 
+Yes you can disable the fontawesome as well from the display settings and also you can use your own icons by using custom icon option in the display settings
+
+= Can I undo like and dislike after already liking or disliking? = 
+Yes you can undo like or dislike by clicking the like or dislike. You can also give the different icon color for already liked or disliked icon from the display settings.
+
 == Screenshots ==
 
 1. Like Dislike Icon Template 1
@@ -82,6 +88,10 @@ We do have a shortcode [posts_like_dislike] which can also be used as custom fun
 7. Like Dislike Design Settings
 
 == Changelog ==
+= 1.1.0 = 
+* Added undo feature for like and dislike action
+* Added already liked disliked icon color option
+
 = 1.0.9 = 
 * Fixed few undefined index warnings
 * Added fontawesome loading disable in the frontend option
