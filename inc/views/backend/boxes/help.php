@@ -93,7 +93,7 @@
     </h3>
     <p>
     <pre>&lt;?php echo do_shortcode('[posts_like_dislike id=post_id]');?&gt;</pre>
-    <span class="description"><?php esc_html_e('Please replace post_id with the id of the post for which you want to get the like and dislike icon. Please remove id parameter for considering the post id as the id of global $post object', 'posts-like-dislike');?></span>
+    <span class="description"><?php esc_html_e('Please replace post_id with the id of the post for which you want to get the like and dislike icon. Please remove id parameter for considering the post id as the id of global $post object', 'posts-like-dislike'); ?></span>
     </p>
     <h3><?php esc_html_e('Available Filters', PLD_TD); ?>
     </h3>
@@ -275,6 +275,28 @@ do_action( 'pld_like_template', $pld_settings );
  * @since 1.0.0
  */
 do_action( 'pld_after_ajax_process', $post_id );
+    </pre>
+        <pre>
+/**
+* Action pld_before_undo_ajax_process
+* Fires just before the undo ajax process
+*
+* @param type int $post_id
+*
+* @since 1.1.9
+*/
+do_action('pld_before_undo_ajax_process', $post_id);
+    </pre>
+        <pre>
+/**
+* Action pld_after_undo_ajax_process
+* Fires just after the undo ajax process
+*
+* @param type int $post_id
+*
+* @since 1.1.9
+*/
+do_action('pld_after_undo_ajax_process', $post_id);
     </pre>
     </div>
 </div>

@@ -5,7 +5,7 @@ defined('ABSPATH') or die('No script kiddies please');
 /*
   Plugin Name: Posts Like Dislike
   Description: A simple plugin to add like dislike for your WordPress Posts
-  Version:     1.0.9
+  Version:     1.1.0
   Author:      WP Happy Coders
   Author URI:  http://wphappycoders.com
   License:     GPL2
@@ -47,7 +47,7 @@ if (!class_exists('Posts_like_dislike')) {
             defined('PLD_IMG_DIR') or define('PLD_IMG_DIR', plugin_dir_url(__FILE__) . 'images');
             defined('PLD_CSS_DIR') or define('PLD_CSS_DIR', plugin_dir_url(__FILE__) . 'css');
             defined('PLD_JS_DIR') or define('PLD_JS_DIR', plugin_dir_url(__FILE__) . 'js');
-            defined('PLD_VERSION') or define('PLD_VERSION', '1.0.9');
+            defined('PLD_VERSION') or define('PLD_VERSION', '1.1.0');
             defined('PLD_TD') or define('PLD_TD', 'posts-like-dislike');
             defined('PLD_BASENAME') or define('PLD_BASENAME', plugin_basename(__FILE__));
         }
