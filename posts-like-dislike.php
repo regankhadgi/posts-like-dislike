@@ -15,8 +15,8 @@ defined('ABSPATH') or die('No script kiddies please');
  */
 
 
-if (!class_exists('PLD_Comments_like_dislike')) {
-    class PLD_Comments_like_dislike {
+if (!class_exists('Posts_like_dislike')) {
+    class Posts_like_dislike {
         public function __construct() {
             $this->define_constants();
             $this->includes();
@@ -53,5 +53,5 @@ if (!class_exists('PLD_Comments_like_dislike')) {
         }
     }
 
-    $pld_object = new PLD_Comments_like_dislike();
+    $pld_object = new Posts_like_dislike();
 }

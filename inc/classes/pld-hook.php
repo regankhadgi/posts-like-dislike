@@ -41,6 +41,9 @@ if (!class_exists('PLD_Hooks')) {
             if ($pld_settings['design_settings']['count_color'] != '') {
                 echo 'span.pld-count-wrap {color: ' . esc_attr($pld_settings['design_settings']['count_color']) . ';}';
             }
+            if (!empty($pld_settings['design_settings']['already_liked_disliked_color'])) {
+                echo 'a.pld-prevent.pld-undo-trigger  {color: ' . esc_html($pld_settings['design_settings']['already_liked_disliked_color']) . ';}';
+            }
             echo "</style>";
         }
     }

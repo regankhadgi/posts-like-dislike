@@ -1,5 +1,5 @@
 <?php
-$post_id = (!empty($atts['id']))?intval($atts['id']):get_the_ID();
+$post_id = (!empty($atts['id'])) ? intval($atts['id']) : get_the_ID();
 $like_count = get_post_meta($post_id, 'pld_like_count', true);
 $dislike_count = get_post_meta($post_id, 'pld_dislike_count', true);
 
@@ -10,6 +10,7 @@ if (empty($pld_settings['basic_settings']['status']) && empty($shortcode)) {
     return;
 }
 $already_liked = 0;
+$already_liked_type = 'na';
 $href = 'javascript:void(0)';
 
 /**
@@ -18,6 +19,7 @@ $href = 'javascript:void(0)';
  */
 if ($pld_settings['basic_settings']['like_dislike_resistriction'] == 'cookie' && isset($_COOKIE['pld_' . $post_id])) {
     $already_liked = 1;
+    $already_liked_type = ($_COOKIE['pld_' . $post_id] != 1) ? $_COOKIE['pld_' . $post_id] : 'na';
 }
 
 /**
@@ -25,12 +27,21 @@ if ($pld_settings['basic_settings']['like_dislike_resistriction'] == 'cookie' &&
  */
 if ($pld_settings['basic_settings']['like_dislike_resistriction'] == 'ip') {
     $liked_ips = get_post_meta($post_id, 'pld_ips', true);
+    $liked_ips_info = get_post_meta($post_id, 'pld_ips_info', true);
     $user_ip = $this->get_user_IP();
     if (empty($liked_ips)) {
         $liked_ips = array();
     }
     if (in_array($user_ip, $liked_ips)) {
         $already_liked = 1;
+    }
+    if ((in_array($user_ip, $liked_ips))) {
+        $already_liked = 1;
+        if (isset($liked_ips_info[md5($user_ip)])) {
+            $already_liked_type = $liked_ips_info[md5($user_ip)];
+        } else {
+            $already_liked_type = 'na';
+        }
     }
 }
 
@@ -41,9 +52,20 @@ if ($pld_settings['basic_settings']['like_dislike_resistriction'] == 'user') {
     if (is_user_logged_in()) {
         $liked_users = get_post_meta($post_id, 'pld_users', true);
         $liked_users = (empty($liked_users)) ? array() : $liked_users;
+
+        $liked_users_info = get_post_meta($post_id, 'pld_users_info', true);
+        $liked_users_info = (empty($liked_users_info)) ? array() : $liked_users_info;
         $current_user_id = get_current_user_id();
         if (in_array($current_user_id, $liked_users)) {
             $already_liked = 1;
+        }
+        if (in_array($current_user_id, $liked_users)) {
+            $already_liked = 1;
+            if (isset($liked_users_info[$current_user_id])) {
+                $already_liked_type = $liked_users_info[$current_user_id];
+            } else {
+                $already_liked_type = 'na';
+            }
         }
     } else {
         $current_page_url = $this->get_current_page_url();
@@ -84,8 +106,7 @@ $dislike_title = isset($pld_settings['basic_settings']['dislike_hover_text']) ? 
 
 //$this->print_array( $pld_settings );
 ?>
-<div
-    class="pld-like-dislike-wrap pld-<?php echo esc_attr($pld_settings['design_settings']['template']); ?>">
+<div class="pld-like-dislike-wrap pld-<?php echo esc_attr($pld_settings['design_settings']['template']); ?>">
     <?php
     /**
      * Like Dislike Order
