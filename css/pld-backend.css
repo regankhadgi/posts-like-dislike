@@ -1,0 +1,87 @@
+.pld-header {
+    background: #c1351e;
+    padding: 15px;
+    margin-bottom: 25px;
+}
+
+.pld-settings-section-wrap {
+    background: #fff;
+    min-height: 370px;
+    margin-top: 20px;
+    padding:20px
+}
+span.pld-avatar-holder {
+    float: right;
+    margin-top: -31px;
+    margin-right: -14px;
+}
+.pld-clear {
+    clear: both;
+}
+.pld-field-wrap {
+    margin-bottom: 20px;
+}
+.pld-field-wrap > label {
+    display: inline-block;
+    font-weight: 500;
+    width: 250px;
+    vertical-align: top;
+}
+.pld-field {
+    display: inline-block;
+}
+.pld-each-template-preview {
+    margin-top: 20px;
+}
+.pld-field input[type="text"] {
+    width: 500px;
+}
+span.pld-avatar-holder img {
+    border: 2px solid #f1f1f1;
+    margin-top: -1px;
+    margin-right: -1px;
+}
+.pld-header h3{color:#fff;}
+.pld-info-wrap {
+    background: #257924;
+    color: #fff;
+    position: fixed;
+    top: 32px;
+    left: 45%;
+    padding: 10px;
+}
+img.pld-loader {
+    margin-right: 10px;
+    vertical-align: middle;
+    margin-top: -3px;
+}
+.pld-close-info {
+    margin-left: 20px;
+    cursor: pointer;
+}
+span.pld-preview-holder {
+    width: 50px;
+    display: block;
+    vertical-align: top;
+    margin-top: 10px;
+}
+span.pld-preview-holder img {
+    max-width: 100% !important;
+}
+.pld-separator {
+    border-bottom: 1px solid #bbb;
+    padding: 10px;
+}
+.pld-settings-section-wrap pre {
+    border-left: 5px solid #258ef7;
+    background: #eee;
+    padding: 5px;
+}
+.pld-fixed-height {
+    height: 300px;
+    overflow-y: scroll;
+}
+label.pld-checkbox-label {
+    display: block;
+    margin-bottom: 10px;
+}
