@@ -48,7 +48,7 @@ if (!class_exists('PLD_Admin')) {
         }
 
         function save_settings() {
-            if (isset($_POST['_wpnonce']) && wp_verify_nonce($_POST['_wpnonce'], 'pld-backend-ajax-nonce')) {
+            if (isset($_POST['_wpnonce']) && wp_verify_nonce($_POST['_wpnonce'], 'pld-backend-ajax-nonce') && current_user_can('manage_options')) {
                 $_POST = stripslashes_deep($_POST);
                 parse_str($_POST['settings_data'], $settings_data);
                 $settings_data = $this->sanitize_array($settings_data);
@@ -82,9 +82,13 @@ if (!class_exists('PLD_Admin')) {
         }
 
         function restore_settings() {
-            $default_settings = $this->get_default_settings();
-            update_option('pld_settings', $default_settings);
-            die(__('Settings restored successfully.Redirecting...', PLD_TD));
+            if (isset($_POST['_wpnonce']) && wp_verify_nonce($_POST['_wpnonce'], 'pld-backend-ajax-nonce') && current_user_can('manage_options')) {
+                $default_settings = $this->get_default_settings();
+                update_option('pld_settings', $default_settings);
+                die(__('Settings restored successfully.Redirecting...', PLD_TD));
+            } else {
+                die('No script kiddies please!!');
+            }
         }
 
         /**
@@ -146,7 +150,6 @@ if (!class_exists('PLD_Admin')) {
                 return;
             }
         }
-
     }
 
     new PLD_Admin();

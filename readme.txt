@@ -3,8 +3,8 @@ Contributors: Happy Coders,regankhadgi
 Donate link: http://wphappycoders.com/
 Tags: posts, post, custom post type,page, like, dislike, like dislike
 Requires at least: 5.0
-Tested up to: 6.2
-Stable tag: 1.1.0
+Tested up to: 6.4
+Stable tag: 1.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -88,6 +88,15 @@ Yes you can undo like or dislike by clicking the like or dislike. You can also g
 7. Like Dislike Design Settings
 
 == Changelog ==
+= 1.1.3 = 
+* Fixed a security issue
+
+= 1.1.2 = 
+* Fixed security issue
+
+= 1.1.1 = 
+* Fixed security issue
+
 = 1.1.0 = 
 * Added undo feature for like and dislike action
 * Added already liked disliked icon color option
