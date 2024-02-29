@@ -55,18 +55,12 @@ if (!class_exists('PLD_Library')) {
          * @since 1.0.0
          */
         function get_user_IP() {
-            $client = (!empty($_SERVER['HTTP_CLIENT_IP'])) ? sanitize_text_field($_SERVER['HTTP_CLIENT_IP']) : '';
-            $forward = (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) ? sanitize_text_field($_SERVER['HTTP_X_FORWARDED_FOR']) : '';
-            $remote = (!empty($_SERVER['REMOTE_ADDR'])) ? sanitize_text_field($_SERVER['REMOTE_ADDR']) : '';
+            $ip = sanitize_text_field($_SERVER['REMOTE_ADDR']);
 
-            if (filter_var($client, FILTER_VALIDATE_IP)) {
-                $ip = $client;
-            } elseif (filter_var($forward, FILTER_VALIDATE_IP)) {
-                $ip = $forward;
-            } else {
-                $ip = $remote;
+            // If the IP is in an unexpected format, fallback to a default
+            if (filter_var($ip, FILTER_VALIDATE_IP) === false) {
+                $ip = '127.0.0.1';
             }
-
             return $ip;
         }
 
